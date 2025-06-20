@@ -6,7 +6,7 @@ import styles from '../styles/AthleteShowcaseSection.module.css';
 const AthleteShowcaseSection = () => {
   // Remplace ceci par l'URL réelle de ton site (avec https://)
   // C'est important pour que l'image soit accessible via un lien public
-  const baseUrl = ' http://localhost:3001/'; // <--- TRÈS IMPORTANT : METS TON VRAI DOMAINE ICI
+  const baseUrl = 'https://km-shop.vercel.app/'; // <--- TRÈS IMPORTANT : METS TON VRAI DOMAINE ICI
 
   // REMPLACE 'VOTRE_NUMERO_WHATSAPP' PAR TON NUMÉRO AU FORMAT INTERNATIONAL SANS '+'
   const yourWhatsappNumber = '237698053784'; // Exemple pour le Cameroun, remplace 'xxxxxxxx' par le reste de ton numéro
