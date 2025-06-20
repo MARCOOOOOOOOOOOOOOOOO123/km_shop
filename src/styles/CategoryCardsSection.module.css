@@ -1,0 +1,135 @@
+.categoryCardsSection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+  gap: 20px; /* Space between cards */
+  padding: 40px 60px; /* Padding around the section */
+  max-width: 1400px; /* Max width to keep content centered */
+  margin: 0 auto;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  padding-bottom: 30%; /* Creates a perfect square aspect ratio */
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start; /* Align content to bottom-left */
+  align-items: flex-end;
+  border-radius: 8px; /* Slightly rounded corners */
+}
+
+.card img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  transition: transform 0.3s ease; /* Smooth transition on hover */
+}
+.card:hover img {
+  transform: scale(1.1); /* Increase size on hover */
+  transform-origin: center center; /* Center the scale transformation */
+  transition: transform 0.3s ease; /* Smooth transition on hover */
+
+}
+
+
+.cardContent {
+  position: relative;
+  z-index: 2; /* Ensure content is above image */
+  padding: 20px;
+  color: #fff; /* White text over image */
+  text-align: left;
+
+  width: 100%;
+  padding-top: 50%; /* Push content to the bottom */
+}
+
+.cardTitle {
+  font-size: 1.8em;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* For better readability */
+}
+
+.cardButton {
+  background-color: #fff; /* Couleur de fond par défaut */
+  color: #000;             /* Couleur du texte par défaut */
+  padding: 10px 25px;
+  border: none;
+  border-radius: 20px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  /* Transitions pour un effet fluide sur toutes les propriétés que l'on va modifier */
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  
+  /* Pour un léger effet d'ombre par défaut, pour que le bouton ne soit pas plat */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+.cardButton:hover {
+  color: #fff; /* Change la couleur du texte en blanc pour contraster avec le dégradé */
+  
+  /* Dégradé de couleurs vives (bleu-violet-rose) pour le fond */
+  background: linear-gradient(
+    90deg, 
+    #00c6ff, /* Bleu ciel */
+    #0072ff, /* Bleu vif */
+    #6930c3, /* Violet */
+    #a820bb, /* Magenta foncé */
+    #fc2897  /* Rose vif */
+  );
+  background-size: 200% 100%; /* Permet d'animer le dégradé si tu le souhaites */
+  background-position: 0% 0%; /* Position initiale du dégradé */
+
+  /* Effet de lueur (glow) avec des ombres multiples, correspondant au dégradé */
+  box-shadow: 
+    0 0 10px #00c6ff,  /* Lueur bleu ciel */
+    0 0 20px #0072ff,  /* Lueur bleu vif */
+    0 0 30px #6930c3,  /* Lueur violette */
+    0 0 40px #a820bb,  /* Lueur magenta */
+    0 0 50px #fc2897;  /* Lueur rose vif */
+
+  /* Légère élévation ou transformation au survol pour un feedback visuel */
+  transform: translateY(-3px) scale(1.02); /* Légère élévation et petit zoom */
+}
+
+/* Si tu veux une animation du dégradé de fond au survol, décommente ceci: */
+/*
+@keyframes neonGlow {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 0%; }
+}
+
+.cardButton:hover {
+  animation: neonGlow 3s linear infinite;
+  animation-fill-mode: forwards; // Garde le dernier état de l'animation
+}
+*/
+
+/* Responsive adjustments for CategoryCardsSection */
+@media (max-width: 1024px) {
+  .categoryCardsSection {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    padding: 30px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .categoryCardsSection {
+    grid-template-columns: 1fr; /* 1 column on small screens */
+    padding: 20px 20px;
+  }
+
+  .cardTitle {
+    font-size: 1.5em;
+  }
+
+  .cardButton {
+    padding: 8px 20px;
+    font-size: 0.9em;
+  }
+}

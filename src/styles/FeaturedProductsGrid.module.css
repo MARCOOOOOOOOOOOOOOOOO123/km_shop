@@ -1,0 +1,164 @@
+.featuredProductsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+  gap: 20px; /* Space between cards */
+  padding: 40px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.productCard {
+  position: relative;
+  width: 100%;
+  padding-bottom: 40%; /* Aspect ratio (e.g., 16:9 or 4:3) based on image, adjust as needed */
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  border-radius: 8px;
+  /* AJOUTS POUR LE HOVER DE LA CARTE */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère par défaut */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition douce pour la carte */
+}
+
+.productCard img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  /* AJOUT POUR LE HOVER DE L'IMAGE */
+  transition: transform 0.3s ease; /* Transition douce pour le zoom de l'image */
+}
+
+/* AJOUTS POUR L'EFFET AU SURVOL DE LA CARTE ENTIÈRE */
+.productCard:hover {
+  transform: translateY(-5px); /* Légère élévation de la carte */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
+}
+
+.productCard:hover img {
+  transform: scale(1.05); /* Légère augmentation de la taille de l'image (zoom) */
+  /* transform-origin: center center; /* S'assure que le zoom est centré */
+}
+
+.cardContent {
+  position: relative;
+  z-index: 2;
+  padding: 30px; /* Larger padding for this section */
+  color: #fff;
+  text-align: left;
+  
+  width: 100%;
+  padding-top: 40%; /* Adjust to push content to the bottom */
+}
+
+.cardTagline {
+  font-size: 0.9em;
+  font-weight: 500;
+  margin-bottom: 5px;
+  text-shadow: 1px 1px 2px rgb(255, 255, 255);
+}
+
+.cardTitle {
+  font-size: 2.2em; /* Larger, bolder title */
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 20px;
+   text-shadow: 1px 1px 2px rgb(255, 255, 255);
+}
+
+.cardButton {
+  background-color: #fff; /* Couleur de fond par défaut (sera masquée au hover) */
+  color: #000;             /* Couleur du texte par défaut */
+  padding: 10px 25px;
+  border: none;
+  border-radius: 20px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  /* Transitions pour un effet fluide sur toutes les propriétés que l'on va modifier */
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  
+  /* Pour l'effet de glow initial subtil (optionnel) */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
+}
+
+.cardButton:hover {
+  color: #fff; /* Change la couleur du texte en blanc pour contraster avec le dégradé */
+  
+  /* Dégradé arc-en-ciel pour le fond */
+  background: linear-gradient(
+    90deg, 
+    #ff0000, /* Rouge */
+    #ff7f00, /* Orange */
+    #ffff00, /* Jaune */
+    #00ff00, /* Vert */
+    #0000ff, /* Bleu */
+    #4b0082, /* Indigo */
+    #8f00ff  /* Violet */
+  );
+  background-size: 200% 100%; /* Permet d'animer le dégradé */
+  background-position: 0% 0%; /* Position initiale du dégradé */
+
+  /* Effet de lueur (glow) arc-en-ciel avec box-shadow */
+  box-shadow: 
+    0 0 15px #e9b0b0, /* Rouge */
+    0 0 25px #ff7f00, /* Orange */
+    0 0 35px #ffff00, /* Jaune */
+    0 0 45px #00ff00, /* Vert */
+    0 0 55px #0000ff, /* Bleu */
+    0 0 65px #4b0082, /* Indigo */
+    0 0 75px #8f00ff; /* Violet */
+
+  /* Légère élévation ou animation au survol pour accentuer l'effet */
+  transform: translateY(-2px);
+}
+
+/* Optionnel: animation du dégradé de fond */
+@keyframes rainbowGlow {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 0%; }
+}
+
+/* Si tu veux que le dégradé bouge, tu peux l'ajouter ici
+   Cependant, pour un simple "glow arc-en-ciel", les multiples box-shadow suffisent généralement.
+   Si tu veux vraiment que le dégradé *défile* en arrière-plan, tu devras faire comme ça:
+*/
+/*
+.cardButton:hover {
+  animation: rainbowGlow 4s linear infinite;
+}
+*/
+
+/* Responsive adjustments for FeaturedProductsGrid */
+@media (max-width: 1024px) {
+  .featuredProductsGrid {
+    grid-template-columns: 1fr; /* Single column on smaller screens */
+    padding: 30px 40px;
+  }
+
+  .productCard {
+    padding-bottom: 60%; /* Adjust aspect ratio for mobile if needed */
+  }
+
+  .cardTitle {
+    font-size: 1.8em;
+  }
+}
+
+@media (max-width: 768px) {
+  .featuredProductsGrid {
+    padding: 20px 20px;
+  }
+
+  .cardContent {
+    padding: 20px;
+  }
+
+  .cardTitle {
+    font-size: 1.6em;
+  }
+}

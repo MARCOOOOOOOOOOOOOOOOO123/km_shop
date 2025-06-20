@@ -1,0 +1,4 @@
+/* src/app/page.module.css */
+.mainContent {
+  padding-top: 60px; /* Ajustez cette valeur en fonction de la hauteur réelle de votre navbar */
+}

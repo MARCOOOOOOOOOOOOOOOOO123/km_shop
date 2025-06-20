@@ -1,0 +1,452 @@
+/* src/components/Navbar.module.css */
+
+/* ==================================== */
+/* 1. Global Navbar Container (Desktop & Mobile Base) */
+/* ==================================== */
+.navbar { /* Anciennement .navBar, changé pour correspondre au JSX et être plus cohérent */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Assure que la navbar est au-dessus des autres éléments */
+  background-color: black; /* Couleur de fond de la navbar */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 60px; /* Hauteur fixe de la navbar */
+}
+
+/* Main Navigation Wrapper inside Navbar */
+.mainNav {
+  display: flex;
+  justify-content: flex-start; /* Pousse le logo, liens et barre de recherche à gauche par défaut */
+  align-items: center;
+  padding: 0px 40px; /* Padding latéral pour l'espacement des bords */
+  height: 100%; /* S'assure que mainNav prend toute la hauteur de navbar */
+}
+
+/* ==================================== */
+/* 2. Logo Styling */
+/* ==================================== */
+.logo { /* Anciennement .logoContainer */
+  display: flex;
+  align-items: center;
+  margin-right: 40px; /* Espace après le logo */
+}
+
+.logo img {
+  /* Aucun style spécifique nécessaire ici si width/height sont définis dans le JSX */
+}
+
+/* ==================================== */
+/* 3. Main Navigation Links (Desktop) */
+/* ==================================== */
+.navLinks {
+  display: flex; /* Par défaut, flex pour desktop */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 30px; /* Espacement entre les éléments de navigation */
+  align-items: center;
+  flex-grow: 1; /* Permet aux liens de prendre l'espace disponible, poussant les icônes à droite */
+  margin-left: 200;
+}
+
+/* Individual Nav Item */
+.navItem {
+  position: relative; /* Contexte de positionnement pour les dropdowns */
+  height: 100%; /* S'assure que l'item prend toute la hauteur pour hover */
+  display: flex;
+  align-items: center; /* Centre le texte du lien verticalement */
+}
+
+/* Nav Link Styling */
+.navLink {
+  text-decoration: none;
+  color: #fff; /* Couleur de texte blanche */
+  font-weight: 600;
+  padding-bottom: 5px; /* Espace pour l'underline */
+  transition: color 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap; /* Empêche le texte de se casser sur plusieurs lignes */
+  font-weight: 400;
+}
+
+/* Underline effect for Nav Link */
+.navLink::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: transparent;
+  transform: scaleX(0);
+  transform-origin: bottom left;
+  transition: transform 0.3s ease-out, background-color 0.3s ease;
+}
+
+/* Nav Link Hover Effect */
+.navItem:hover .navLink {
+  color: #ddd; /* Légèrement plus clair au survol */
+}
+
+.navItem:hover .navLink::after {
+  transform: scaleX(1);
+  background-color: #fff; /* Underline blanc au survol */
+}
+
+/* ==================================== */
+/* 4. Dropdown Menus Styling */
+/* ==================================== */
+
+/* Styles for simple dropdown menus */
+.dropdownMenuSimple {
+  position: absolute;
+  top: calc(100% + 10px); /* Sous la navbar, avec un petit espace */
+  left: 0;
+  background-color: #333; /* Fond plus sombre pour les dropdowns */
+  border: 1px solid #444;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  border-radius: 5px;
+}
+
+.dropdownMenuSimple li a {
+  display: block;
+  padding: 8px 20px;
+  text-decoration: none;
+  color: #fff; /* Texte blanc */
+  white-space: nowrap;
+}
+
+.dropdownMenuSimple li a:hover {
+  background-color: #555; /* Couleur de survol plus sombre */
+  color: #007bff; /* Couleur d'accent au survol */
+}
+
+/* Styles for multi-column dropdown menu (Nouveautés) */
+.dropdownMenuMultiColumn {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%; /* Centre le multi-column dropdown */
+  transform: translateX(-50%);
+  background-color: #333; /* Fond plus sombre */
+  border: 1px solid #444;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  padding: 20px 30px;
+  display: flex;
+  gap: 60px;
+  z-index: 100;
+  min-width: 900px; /* Adapte la largeur */
+  max-width: 1200px;
+  justify-content: space-between;
+  border-radius: 5px;
+}
+
+.dropdownColumn {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 25%;
+  white-space: nowrap;
+}
+
+.dropdownColumnTitle {
+  font-size: 1em;
+  font-weight: bold;
+  color: #fff; /* Titre blanc */
+  margin-bottom: 15px;
+  padding: 0;
+}
+
+.dropdownColumnLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdownColumnLinks li {
+  margin-bottom: 8px;
+}
+
+.dropdownColumnLinks li:last-child {
+  margin-bottom: 0;
+}
+
+.dropdownColumnLinks a {
+  text-decoration: none;
+  color: #ccc; /* Couleur de texte légèrement plus claire */
+  font-size: 0.9em;
+  transition: color 0.2s ease;
+}
+
+.dropdownColumnLinks a:hover {
+  color: #007bff; /* Couleur d'accent au survol */
+}
+
+/* ==================================== */
+/* 5. Search Bar Styling (Integrated) */
+/* ==================================== */
+.searchBarNavItem {
+    list-style: none; /* Supprime la puce de la liste */
+    margin-left: 100px; /* Espacement par rapport aux liens de nav */
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 5px 10px;
+  position: relative; /* Contexte pour l'icône */
+  width: 200px; /* Largeur de la barre de recherche */
+}
+
+.searchInput {
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 5px;
+  font-size: 14px;
+  color: #fff;
+  flex-grow: 1;
+  padding-right: 35px; /* Espace pour l'icône */
+}
+
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.searchButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.searchButton img {
+  filter: invert(1); /* Rend l'icône blanche */
+  width: 40px;
+  height: 40px;
+}
+
+/* ==================================== */
+/* 6. Nav Icons (Heart & Bag) */
+/* ==================================== */
+.navIcons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-left: 40px; /* Espacement par rapport à la barre de recherche */
+}
+
+.navIcons a img {
+  filter: invert(1); /* Rend les icônes blanches */
+}
+
+/* ==================================== */
+/* 7. Mobile Menu (Hamburger & Overlay) */
+/* ==================================== */
+
+/* Burger Icon */
+.hamburger { /* Anciennement .burgerMenu */
+  display: block; /* Visible par défaut sur mobile */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1005; /* Assure qu'il est au-dessus de l'overlay */
+}
+
+.hamburgerLine {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background-color: white; /* Lignes blanches */
+  margin: 4px 0;
+  transition: all 0.3s ease;
+}
+
+/* Mobile Menu Overlay */
+.mobileMenuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95); /* Fond presque noir transparent */
+  z-index: 1001; /* Au-dessus de la navbar, en dessous du bouton de fermeture */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Commence en haut, pas au centre */
+  padding-top: 80px; /* Espace pour ne pas chevaucher la navbar */
+  overflow-y: auto;
+}
+
+.closeMenuButton {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: #ffffff; /* Bouton "x" blanc */
+  font-size: 3rem;
+  cursor: pointer;
+  z-index: 1002;
+  line-height: 1;
+}
+
+/* Mobile Menu Links */
+.mobileMenuLinks { /* Conteneur pour tous les éléments du menu mobile (liens, barre de recherche) */
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+  width: 90%; /* Prend une bonne largeur sur mobile */
+}
+
+.mobileLinkItem {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+  font-family: 'Inter', sans-serif;
+  padding: 0.5rem;
+}
+
+.mobileLinkItem:hover {
+  color: #007bff;
+}
+
+/* ==================================== */
+/* 8. Media Queries (Responsive) */
+/* ==================================== */
+
+/* Desktop Styles (min-width: 768px) */
+@media (min-width: 768px) {
+  .hamburger {
+    display: none; /* Masque le burger sur desktop */
+  }
+
+  .mobileMenuOverlay {
+    display: none; /* Cache le menu mobile sur desktop */
+  }
+
+  .navLinks {
+    display: flex; /* Affiche les liens principaux sur desktop */
+    /* flex-grow: 1; est déjà défini plus haut, important pour l'espacement */
+  }
+
+  /* Assure que le .searchBarNavItem et .searchBar sont correctement affichés */
+  .searchBarNavItem {
+      display: list-item; /* Ou block, selon l'alignement souhaité */
+  }
+
+  .searchBar {
+      display: flex;
+  }
+}
+
+/* Mobile Specific Adjustments (max-width: 767px) */
+@media (max-width: 767px) {
+  .mainNav {
+    justify-content: space-between;
+    padding: 0px 20px;
+  }
+
+  .logo {
+    margin-right: 0;
+  }
+
+  /* Cache les liens principaux de bureau et les icônes sur mobile par défaut */
+  .navLinks {
+    display: none; /* Cache les liens de la navbar principale sur mobile */
+  }
+  .navIcons {
+    display: none; /* Cache les icônes de la navbar principale sur mobile */
+  }
+  .searchBarNavItem {
+    display: none; /* Cache la barre de recherche sur mobile par défaut */
+  }
+
+
+  /* Style de l'OVERLAY du menu mobile lorsqu'il est ouvert */
+  .mobileMenuOverlay { /* C'est LA CLASSE PRINCIPALE de l'overlay mobile */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95); /* Fond noir semi-transparent couvrant tout l'écran */
+    z-index: 1020; /* Au-dessus de la navbar */
+    display: flex; /* Permet d'aligner les éléments enfants (les liens principaux) */
+    flex-direction: column; /* Les éléments enfants s'empilent verticalement */
+    align-items: center; /* Centre les liens horizontalement */
+    justify-content: flex-start; /* Aligne les éléments du menu au début (haut) */
+    padding-top: 80px; /* Laisse de l'espace pour la navbar fixe en haut */
+    padding-bottom: 10px;
+    overflow-y: auto; /* Permet le défilement si le contenu est trop grand */
+    gap: 2px; /* Espacement entre les liens principaux du menu mobile */
+  }
+
+  /* Styles des LIENS PRINCIPAUX à l'intérieur du menu mobile */
+  .navItem { /* Cette classe s'applique aux <li> qui contiennent les liens */
+    width: 100%; /* S'assure que le <li> prend toute la largeur */
+    text-align: center; /* Centre le texte des liens */
+    /* Pas besoin de gérer les survol/sortie ici, ils ne déclenchent plus de sous-menus */
+  }
+
+  .navLink { /* C'est la classe des <Link> de la navbar principale */
+    display: block; /* S'assure que le lien prend toute la largeur du <li> parent */
+    padding: 10px 0; /* Padding vertical pour une grande zone de clic */
+    font-size: 1em; /* Grande taille de police pour les liens principaux du menu mobile */
+    font-weight: 600; /* Plus épais pour la lisibilité */
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .navLink:hover {
+    color: #007bff;
+    background-color: rgba(255, 255, 255, 0.05); /* Léger fond au survol */
+  }
+
+  /* Masque TOUS les sous-menus et les éléments non-principaux à l'intérieur de l'overlay mobile */
+  .dropdownMenuSimple,
+  .dropdownMenuMultiColumn,
+  .mobileSubmenuList, /* Si ces classes ont été utilisées pour rendre les sous-menus sur mobile */
+  .mobileMultiColumn,
+  .searchBarNavItem, /* Masque la barre de recherche si elle est rendue dans le menu mobile */
+  .navIcons /* Masque les icônes si elles sont rendues dans le menu mobile */
+  {
+    display: none !important; /* Force le masquage */
+  }
+
+  /* Si tu veux une croix de fermeture, assure-toi qu'elle est toujours visible */
+  .closeMenuButton {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 3rem;
+    cursor: pointer;
+    z-index: 1002;
+    line-height: 1;
+  }
+}

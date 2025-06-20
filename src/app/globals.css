@@ -1,0 +1,21 @@
+/* src/app/globals.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+ html, body {
+      overflow-x: hidden; /* Empêche le défilement horizontal */
+    }
+
+    /* Le reste de vos styles globaux */
+    body {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box; /* S'assure que padding et border sont inclus dans la largeur/hauteur */
+      font-family: 'Inter', sans-serif; /* S'assure que la police Inter est appliquée globalement */
+  background-color: #000000;
+  line-height: 1.5; /* Bonne pratique pour la lisibilité */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Vous pouvez réinitialiser d'autres styles ici si nécessaire */
+/* a { color: inherit; text-decoration: none; } */

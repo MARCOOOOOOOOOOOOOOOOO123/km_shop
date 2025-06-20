@@ -1,0 +1,136 @@
+/* src/styles/HeroSection.module.css */
+
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Utilise toute la hauteur de la fenêtre */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff; /* Texte blanc pour un bon contraste avec la vidéo */
+  overflow: hidden; /* Important pour que la vidéo ne déborde pas */
+}
+
+.videoBackground {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* S'assure que la vidéo couvre toute la section */
+  transform: translate(-50%, -50%); /* Centre la vidéo */
+  z-index: 0; /* Place la vidéo en arrière-plan */
+}
+
+/* Overlay pour améliorer la lisibilité du texte sur la vidéo */
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Overlay sombre semi-transparent */
+  z-index: 1; /* Au-dessus de la vidéo, en dessous du contenu */
+}
+
+.heroContent {
+  position: relative; /* Positionne le contenu au-dessus de l'overlay */
+  z-index: 2; /* S'assure que le contenu est au-dessus de l'overlay et de la vidéo */
+  max-width: 900px; /* Largeur maximale pour le contenu texte */
+  padding: 20px;
+}
+
+.heroContent h1 {
+  font-size: 3em; /* Grande taille de police pour le titre */
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Ombre pour la lisibilité */
+}
+
+.heroContent p {
+  font-size: 1.5em; /* Taille de police pour le paragraphe */
+  margin-bottom: 40px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6); /* Ombre pour la lisibilité */
+}
+
+/* === Styles du Bouton "Acheter" - Fluorescent Arc-en-ciel (UNIQUEMENT POUR CETTE SECTION) === */
+.heroButton {
+  /* Dégradé arc-en-ciel initial */
+  background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+  background-size: 200% auto; /* Prépare le dégradé pour l'effet de survol */
+  color: #fff; /* Texte blanc pour un contraste élevé */
+  padding: 18px 45px; /* Grand padding pour un bouton proéminent */
+  border: none;
+  border-radius: 35px; /* Bords très arrondis (pilule) */
+  font-size: 1.3em; /* Taille de police plus grande */
+  font-weight: bold;
+  cursor: pointer;
+  outline: none; /* Supprime le contour au focus */
+  /* Ombre initiale/Lueur pour l'effet fluorescent */
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.7), 0 0 25px rgba(0, 255, 255, 0.5);
+  transition: background-position 0.6s ease, box-shadow 0.4s ease; /* Transitions plus douces */
+  animation: pulseHeroButton 2s infinite alternate ease-in-out; /* Animation de pulsation */
+  letter-spacing: 1px; /* Espacement des lettres */
+  text-transform: uppercase; /* Texte en majuscules */
+}
+
+.heroButton:hover {
+  background-position: right center; /* Déplace le dégradé au survol pour un effet arc-en-ciel */
+  color: #fff; /* Garde le texte blanc */
+  /* Ombre plus forte et de couleur différente au survol */
+  box-shadow: 0 0 25px rgba(255, 0, 255, 0.9), 0 0 40px rgba(255, 0, 255, 0.7);
+}
+
+/* Keyframes pour l'animation de pulsation du bouton de la Hero Section */
+@keyframes pulseHeroButton {
+  0% {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.7), 0 0 25px rgba(0, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 1), 0 0 35px rgba(0, 255, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.7), 0 0 25px rgba(0, 255, 255, 0.5);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .heroContent h1 {
+    font-size: 3.2em;
+  }
+  .heroContent p {
+    font-size: 1.3em;
+  }
+  .heroButton {
+    padding: 15px 35px;
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroContent h1 {
+    font-size: 2.5em;
+  }
+  .heroContent p {
+    font-size: 1.1em;
+  }
+  .heroButton {
+    padding: 12px 30px;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroContent h1 {
+    font-size: 2em;
+  }
+  .heroContent p {
+    font-size: 0.9em;
+  }
+  .heroButton {
+    padding: 10px 25px;
+    font-size: 0.9em;
+  }
+}

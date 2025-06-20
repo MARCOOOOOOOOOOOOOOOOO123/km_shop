@@ -1,0 +1,154 @@
+.athleteShowcaseSection {
+  position: relative;
+  width: 100%;
+  height: 80vh; /* Adjust height as needed, similar to hero section */
+  display: flex;
+  align-items: center; /* Vertically center content */
+  justify-content: flex-start; /* Align content to left */
+  overflow: hidden;
+  background-color: #000; /* Fallback background */
+}
+
+.athleteShowcaseSection img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.contentOverlay {
+  position: relative;
+  z-index: 2; /* Content above image */
+  color: #fff;
+  padding: 0 80px; /* Adjust left padding for text alignment */
+  text-align: left;
+  /* Add a subtle gradient here if text readability is an issue on some parts of the image */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Align content to bottom of overlay */
+  padding-bottom: 80px; /* Space from bottom */
+  width: 50%; /* Cover half the width for text overlay */
+}
+
+.tagline {
+  font-size: 1.1em;
+  margin-bottom: 5px;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgb(255, 255, 255);
+}
+
+.athleteName {
+  font-size: 4.5em; /* Large, bold name */
+  font-weight: bold;
+  margin-bottom: 25px;
+  line-height: 1.1;
+  text-shadow: 2px 2px 5px rgb(174, 171, 171);
+}
+
+.actionButton {
+  background-color: #fff; /* Couleur de fond par défaut */
+  color: #000;             /* Couleur du texte par défaut */
+  padding: 12px 35px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: flex-start; /* Align button to the left */
+
+  /* AJOUTS POUR L'EFFET FLUORESCENT / GLOW */
+  /* Transitions pour un effet fluide sur toutes les propriétés que l'on va modifier */
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.4s ease, transform 0.3s ease, background 0.4s ease;
+  
+  /* Pour un léger effet d'ombre par défaut, pour que le bouton ne soit pas plat */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.actionButton:hover {
+  color: #fff; /* Change la couleur du texte en blanc pour contraster avec le dégradé lumineux */
+  
+  /* Dégradé de couleurs vives (vert menthe, turquoise, bleu clair) pour le fond */
+  background: linear-gradient(
+    90deg, 
+    #7dffaf, /* Vert menthe clair */
+    #4dffd8, /* Turquoise vif */
+    #00e6e6, /* Cyan / Bleu-vert */
+    #00bfff, /* Bleu ciel profond */
+    #007bff  /* Bleu standard */
+  );
+  background-size: 200% 100%; /* Permet d'animer le dégradé */
+  background-position: 100% 0%; /* Position initiale du dégradé au survol (commence de la fin pour un effet d'apparition) */
+
+  /* Effet de lueur (glow) avec des ombres multiples, correspondant au dégradé */
+  box-shadow: 
+    0 0 15px #7dffaf,  /* Lueur vert menthe */
+    0 0 25px #4dffd8,  /* Lueur turquoise */
+    0 0 35px #00e6e6,  /* Lueur cyan */
+    0 0 45px #00bfff,  /* Lueur bleu ciel */
+    0 0 60px #007bff;  /* Lueur bleu plus intense */
+
+  /* Légère élévation ou transformation au survol pour un feedback visuel */
+  transform: translateY(-4px) scale(1.03); /* Légère élévation et petit zoom */
+}
+
+/* Optionnel: animation du dégradé de fond */
+/* Si tu veux que le dégradé bouge en continu, décommente ceci: */
+/*
+@keyframes gentleFlow {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 0%; }
+}
+
+.actionButton:hover {
+  animation: gentleFlow 5s linear infinite;
+  animation-fill-mode: forwards;
+}
+*/
+/* Responsive adjustments for AthleteShowcaseSection */
+@media (max-width: 1200px) {
+  .athleteName {
+    font-size: 3.5em;
+  }
+}
+
+@media (max-width: 768px) {
+  .athleteShowcaseSection {
+    height: 60vh; /* Shorter on mobile */
+  }
+
+  .contentOverlay {
+    padding: 0 30px;
+    padding-bottom: 40px;
+    width: 100%; /* Take full width on mobile */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)); /* Stronger gradient */
+    justify-content: flex-end;
+  }
+
+  .tagline {
+    font-size: 0.9em;
+  }
+
+  .athleteName {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+  }
+
+  .actionButton {
+    padding: 10px 25px;
+    font-size: 1em;
+    align-self: center; /* Center button on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .athleteName {
+    font-size: 2em;
+  }
+  .contentOverlay {
+    padding-bottom: 30px;
+  }
+}

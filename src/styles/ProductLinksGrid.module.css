@@ -1,0 +1,62 @@
+.productLinksGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Four equal columns */
+  gap: 30px; /* Space between columns */
+  padding: 40px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+  border-top: 1px solid #eee; /* Separator line like in the image */
+  padding-top: 60px; /* More space above the line */
+  margin-top: 40px; /* Space from section above */
+}
+
+.categoryColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.columnTitle {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.columnLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.columnLinks li {
+  margin-bottom: 10px;
+}
+
+.columnLinks a {
+  text-decoration: none;
+  color: #333;
+  font-size: 0.95em;
+  transition: color 0.2s ease;
+}
+
+.columnLinks a:hover {
+  color: #000;
+}
+
+/* Responsive adjustments for ProductLinksGrid */
+@media (max-width: 1024px) {
+  .productLinksGrid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    padding: 30px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .productLinksGrid {
+    grid-template-columns: 1fr; /* Single column on small screens */
+    padding: 20px 20px;
+    gap: 20px; /* Reduce gap */
+    padding-top: 40px; /* Adjust padding after line */
+    margin-top: 20px;
+  }
+}

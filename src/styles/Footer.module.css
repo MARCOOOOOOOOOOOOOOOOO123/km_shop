@@ -1,0 +1,169 @@
+.footer {
+  background-color: #1a1a1a; /* Dark background */
+  color: #f0f0f0; /* Light text color */
+  padding: 40px 60px 20px; /* Top/bottom, left/right padding */
+  font-family: Arial, sans-serif; /* Or your preferred font */
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 30px; /* Space between sections */
+  max-width: 1200px; /* Max width for content alignment */
+  margin: 0 auto; /* Center content */
+}
+
+.footerSection {
+  flex: 1; /* Distribute space equally */
+  min-width: 200px; /* Minimum width before wrapping */
+  margin-bottom: 20px; /* Space for sections on wrap */
+}
+
+.footerSection h3 {
+  color: #fff; /* Slightly brighter heading */
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.footerSection h3::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 40px;
+  height: 2px;
+  background-color: #ff5722; /* Accent color for underline */
+}
+
+.logoContainer {
+  margin-bottom: 15px;
+}
+
+.tagline {
+  font-size: 0.9em;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: #bbb;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 15px;
+}
+
+.socialIcons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  background-color: #333; /* Darker background for social icons */
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.socialIcons a:hover {
+  background-color: #ff5722; /* Accent color on hover */
+}
+
+.socialIcons img {
+  filter: invert(1); /* Make social icons white */
+}
+
+.footerLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footerLinks li {
+  margin-bottom: 10px;
+}
+
+.footerLinks a {
+  color: #f0f0f0;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: color 0.3s ease;
+}
+
+.footerLinks a:hover {
+  color: #ff5722; /* Accent color on hover */
+  text-decoration: underline;
+}
+
+.bottomBar {
+  border-top: 1px solid #333; /* Separator line */
+  margin-top: 40px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 20px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.paymentMethods {
+  display: flex;
+  gap: 15px;
+}
+
+.paymentMethods img {
+  opacity: 0.8; /* Slightly transparent payment icons */
+}
+
+.copyright {
+  font-size: 0.85em;
+  color: #bbb;
+  text-align: center; /* Center on small screens */
+  width: 100%; /* Take full width on wrap */
+  margin-top: 10px; /* Space from payment methods */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .footer {
+    padding: 30px 20px 15px;
+  }
+
+  .footerContent {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footerSection {
+    margin-bottom: 30px;
+    width: 100%; /* Take full width */
+  }
+
+  .footerSection h3::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .socialIcons {
+    justify-content: center;
+  }
+
+  .bottomBar {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .paymentMethods {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 20px 15px 10px;
+  }
+}

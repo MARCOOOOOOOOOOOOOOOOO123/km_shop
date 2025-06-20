@@ -1,0 +1,147 @@
+.iconicModelsSection {
+  padding: 40px 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.sectionHeader h2 {
+  font-size: 2em;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.navigationArrows {
+  display: flex;
+  gap: 10px;
+}
+
+.arrowButton {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 45px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  color: #ffffff;
+}
+
+.arrowButton:hover:not(:disabled) {
+  background-color: #e0e0e0;
+  border-color: #aaa;
+}
+
+.arrowButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sliderContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns for the visible items */
+  gap: 20px;
+  overflow: hidden; /* Important to hide items outside the view */
+  margin-bottom: 20px;
+}
+
+.modelCard {
+  position: relative;
+  width: 100%;
+  padding-bottom: 80%; /* Square aspect ratio */
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #f0f0f0; /* Placeholder background */
+   /* AJOUTS POUR LE HOVER DE LA CARTE */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère par défaut */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition douce pour la carte */
+  transform: scale(1); /* Initial scale */
+}
+
+.modelCard img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+    /* AJOUT POUR LE HOVER DE L'IMAGE */
+  transition: transform 0.3s ease; /* Transition douce pour le zoom de l'image */
+}
+
+/* AJOUTS POUR L'EFFET AU SURVOL DE LA CARTE ENTIÈRE */
+.modelCard:hover {
+  transform: translateY(-8px); /* Élévation légèrement plus prononcée */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25); /* Ombre plus grande et plus foncée au survol */
+}
+
+.modelCard:hover img {
+  transform: scale(1.08); /* Légère augmentation de la taille de l'image (zoom) */
+  /* transform-origin: center center; /* S'assure que le zoom est centré */
+}
+
+
+.modelNameOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 15px;
+  color: #ffffff; /* Black text as in image */
+  font-weight: 600;
+  font-size: 1.1em;
+  z-index: 2;
+  /* Add subtle background if needed for readability */
+}
+
+.progressBar {
+  width: 100%;
+  height: 2px;
+  background-color: #e0e0e0;
+  border-radius: 2px;
+  overflow: hidden; /* Ensures the fill stays inside */
+}
+
+.progressBarFill {
+  height: 100%;
+  background-color: #000; /* Black fill as in image */
+  width: 0%; /* Will be set by JS */
+  transition: width 0.3s ease-out;
+}
+
+/* Responsive adjustments for IconicModelsSlider */
+@media (max-width: 1024px) {
+  .sliderContainer {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+  }
+
+}
+
+@media (max-width: 768px) {
+  .iconicModelsSection {
+    padding: 20px 20px;
+  }
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .sliderContainer {
+    grid-template-columns: 1fr; /* Single column on small screens */
+  }
+  .navigationArrows {
+    width: 100%;
+    justify-content: center;
+  }
+  
+}
