@@ -1,8 +1,7 @@
 // src/app/faq/page.jsx
 "use client"; // Indique que c'est un Client Component
 import React, { useState } from 'react';
-import styles from '@/styles/FAQPage.module.css';
-import globalStyles from '@/styles/global-pages.module.css';
+import styles from '@/styles/base-page.module.css';
 import Link from 'next/link';
 const FAQPage = () => {
   const [openQuestion, setOpenQuestion] = useState(null);
@@ -50,10 +49,10 @@ const FAQPage = () => {
   };
 
   return (
-    <div className={globalStyles.pageContainer}>
-      <h1 className={globalStyles.pageTitle}>Questions Fréquentes (FAQ)</h1>
+    <div className={styles.pageContainer}>
+      <h1 className={styles.pageTitle}>Questions Fréquentes (FAQ)</h1>
 
-      <div className={globalStyles.pageContent}>
+      <div className={styles.pageContent}>
         <p>
           Vous trouverez ici les réponses aux questions les plus fréquemment posées concernant
           nos produits, commandes, livraisons et services.

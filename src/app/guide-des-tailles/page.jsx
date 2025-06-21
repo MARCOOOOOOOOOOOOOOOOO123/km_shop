@@ -1,15 +1,15 @@
 // src/app/guide-des-tailles/page.jsx
 import React from 'react';
 import Image from 'next/image'; // Si vous voulez ajouter des images de guide
-import styles from '@/styles/GuideTaillesPage.module.css';
-import globalStyles from '@/styles/global-pages.module.css';
+import styles from '@/styles/base-page.module.css';
+import Link from 'next/link';
 
 const GuideTaillesPage = () => {
   return (
-    <div className={globalStyles.pageContainer}>
-      <h1 className={globalStyles.pageTitle}>Guide des Tailles</h1>
+    <div className={styles.pageContainer}>
+      <h1 className={styles.pageTitle}>Guide des Tailles</h1>
 
-      <div className={globalStyles.pageContent}>
+      <div className={styles.pageContent}>
         <p>
           Trouver la taille parfaite est essentiel pour votre confort et votre style !
           Veuillez utiliser ce guide pour vous aider à prendre les bonnes mesures et
@@ -117,7 +117,7 @@ const GuideTaillesPage = () => {
 
         <p className={styles.bottomNote}>
           Si vous avez des doutes ou besoin d'aide supplémentaire, n'hésitez pas à
-          <Link href="/contact" className={globalStyles.pageContent.a}> nous contacter</Link>.
+          <Link href="/contact" className={styles.pageContent.a}> nous contacter</Link>.
         </p>
       </div>
     </div>

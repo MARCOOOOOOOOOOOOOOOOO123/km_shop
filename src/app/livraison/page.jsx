@@ -1,15 +1,14 @@
 // src/app/livraison/page.jsx
 import React from 'react';
 import Link from 'next/link';
-import styles from '@/styles/LivraisonRetoursPage.module.css';
-import globalStyles from '@/styles/global-pages.module.css';
+import styles from '@/styles/base-page.module.css';
 
 const LivraisonRetoursPage = () => {
   return (
-    <div className={globalStyles.pageContainer}>
-      <h1 className={globalStyles.pageTitle}>Livraison & Retours</h1>
+    <div className={styles.pageContainer}>
+      <h1 className={styles.pageTitle}>Livraison & Retours</h1>
 
-      <div className={globalStyles.pageContent}>
+      <div className={styles.pageContent}>
         <p>
           Chez KM Shop, nous nous engageons à vous offrir une expérience d'achat fluide,
           de la commande à la réception de vos articles. Voici nos politiques de
@@ -61,7 +60,7 @@ const LivraisonRetoursPage = () => {
 
         <h3>Procédure de retour</h3>
         <ol>
-          <li><strong>Contactez-nous :</strong> Envoyez un email à <a href="mailto:retours@kmshop.com" className={globalStyles.pageContent.a}>retours@kmshop.com</a>
+          <li><strong>Contactez-nous :</strong> Envoyez un email à <a href="mailto:retours@kmshop.com" className={styles.pageContent.a}>retours@kmshop.com</a>
               ou contactez-nous via WhatsApp pour signaler votre intention de retourner un article.
               Indiquez votre numéro de commande et le(s) article(s) concerné(s).</li>
           <li><strong>Préparez votre colis :</strong> Emballez soigneusement l'article dans son emballage d'origine.</li>
@@ -81,7 +80,7 @@ const LivraisonRetoursPage = () => {
 
         <p className={styles.bottomNote}>
           Pour toute question supplémentaire concernant la livraison ou les retours,
-          n'hésitez pas à <Link href="/contact" className={globalStyles.pageContent.a}>nous contacter</Link>.
+          n'hésitez pas à <Link href="/contact" className={styles.pageContent.a}>nous contacter</Link>.
         </p>
       </div>
     </div>

@@ -1,20 +1,20 @@
 // src/app/contact/page.jsx
 import React from 'react';
-import Link from 'next/link'; // Importez Link pour les liens internes
-import styles from '@/styles/ContactPage.module.css'; // Styles spécifiques
-import globalStyles  from '@/styles/global-pages.module.css'; // Styles globaux pour les pages
+import Link from 'next/link';
+import styles from '@/styles/base-page.module.css'; 
 
 const ContactPage = () => {
-  const yourWhatsappNumber = '237698053784'; // Votre numéro WhatsApp
-  const friendWhatsappNumber = '237699471223'; // Numéro WhatsApp de votre ami
+  const yourWhatsappNumber = '237698053784';
+  const friendWhatsappNumber = '237699471223';
 
   const whatsappMessage = encodeURIComponent("Bonjour KM Shop, j'aimerais vous contacter concernant une question générale.");
 
   return (
-    <div className={globalStyles.pageContainer}>
-      <h1 className={globalStyles.pageTitle}>Contactez-nous</h1>
+    // Utilisez styles pour les classes communes
+    <div className={styles.pageContainer}>
+      <h1 className={styles.pageTitle}>Contactez-nous</h1>
 
-      <div className={globalStyles.pageContent}>
+      <div className={styles.pageContent}>
         <p>
           Nous sommes là pour répondre à toutes vos questions ! N'hésitez pas à nous contacter
           via les méthodes ci-dessous.
@@ -27,7 +27,8 @@ const ContactPage = () => {
             href={`https://wa.me/${yourWhatsappNumber}?text=${whatsappMessage}`}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${globalStyles.primaryButton} ${styles.whatsappButton}`}
+            // Utilisez styles pour primaryButton, puis styles pour whatsappButton
+            className={`${styles.primaryButton} ${styles.whatsappButton}`}
           >
             Contacter Marco
           </a>
@@ -35,7 +36,7 @@ const ContactPage = () => {
             href={`https://wa.me/${friendWhatsappNumber}?text=${whatsappMessage}`}
             target="_blank"
             rel="noopener noreferrer"
-            className={`${globalStyles.primaryButton} ${styles.whatsappButton}`}
+            className={`${styles.primaryButton} ${styles.whatsappButton}`}
           >
             Contacter Arnold Kevin
           </a>
@@ -48,7 +49,8 @@ const ContactPage = () => {
         <p>
           Pour des demandes moins urgentes ou des questions détaillées, vous pouvez nous envoyer un email à :
           <br />
-          <a href="mailto:contact@kmshop.com" className={globalStyles.pageContent.a}>contact@kmshop.com</a>
+          <a href="arkevin62@gmail.com" className={styles.pageContent.a}>arkevin62@gmail.com</a> <br />
+          <a href="mailto:marcemaleu@gmail.com" className={styles.pageContent.a}>marcemaleu@gmail.com</a>
         </p>
 
         <h2>Adresse et Horaires</h2>
@@ -67,9 +69,7 @@ const ContactPage = () => {
           Suivez-nous sur nos réseaux sociaux pour les dernières nouveautés et offres spéciales !
         </p>
         <p>
-          <Link href="https://www.facebook.com/kmshop" target="_blank" rel="noopener noreferrer" className={globalStyles.pageContent.a}>Facebook</Link> |
-          <Link href="https://www.instagram.com/kmshop" target="_blank" rel="noopener noreferrer" className={globalStyles.pageContent.a}> Instagram</Link>
-          {/* Ajoutez d'autres liens si nécessaire */}
+          <Link href="https://www.instagram.com/k_m_shop237?igsh=cnJnczk2N251d28w" target="_blank" rel="noopener noreferrer" className={styles.pageContent.a}> Instagram</Link>
         </p>
       </div>
     </div>

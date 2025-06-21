@@ -1,15 +1,14 @@
 // src/app/aide/page.jsx
 import React from 'react';
 import Link from 'next/link';
-import styles from '@/styles/AidePage.module.css';
-import globalStyles from '@/styles/global-pages.module.css';
+import styles from '@/styles/base-page.module.css';
 
 const AidePage = () => {
   return (
-    <div className={globalStyles.pageContainer}>
-      <h1 className={globalStyles.pageTitle}>Centre d'Aide</h1>
+    <div className={styles.pageContainer}>
+      <h1 className={styles.pageTitle}>Centre d'Aide</h1>
 
-      <div className={globalStyles.pageContent}>
+      <div className={styles.pageContent}>
         <p>
           Bienvenue dans notre Centre d'Aide ! Que vous ayez des questions sur une commande,
           nos produits ou nos services, vous trouverez ici les informations nécessaires pour

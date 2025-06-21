@@ -1,5 +1,8 @@
 
 import "./globals.css";
+import styles from "@/styles/global-pages.css"
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata = {
   title: 'Styles & Performances | Maillots, Baskets, T-Shirts, Équipements Sportifs', // Titre du site
@@ -11,7 +14,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
       >
+<Navbar />
         {children}
+<Footer />
       </body>
     </html>
   );
