@@ -6,6 +6,12 @@ import styles from '@/styles/base-page.module.css';
 const LivraisonRetoursPage = () => {
   return (
     <div className={styles.pageContainer}>
+      
+<div className={styles.backToHomeButtonContainer}>
+        <Link href="/" className={styles.primaryButton}>
+          Retour à l'accueil
+        </Link>
+      </div>
       <h1 className={styles.pageTitle}>Livraison & Retours</h1>
 
       <div className={styles.pageContent}>

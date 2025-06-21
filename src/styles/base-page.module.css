@@ -20,6 +20,13 @@
   margin-top: 100px;
 }
 
+/* Style pour le conteneur du bouton de retour à l'accueil */
+.backToHomeButtonContainer {
+  text-align: center; /* Centre le bouton */
+  margin-top: 80px; /* Ajoute de l'espace au-dessus du bouton */
+ 
+}
+
 .pageContent {
   padding: 20px 0 40px;
   color: var(--text-color);

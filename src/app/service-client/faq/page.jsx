@@ -50,6 +50,13 @@ const FAQPage = () => {
 
   return (
     <div className={styles.pageContainer}>
+
+      
+<div className={styles.backToHomeButtonContainer}>
+        <Link href="/" className={styles.primaryButton}>
+          Retour à l'accueil
+        </Link>
+      </div>
       <h1 className={styles.pageTitle}>Questions Fréquentes (FAQ)</h1>
 
       <div className={styles.pageContent}>

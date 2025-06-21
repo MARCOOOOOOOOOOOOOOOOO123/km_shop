@@ -19,7 +19,7 @@ const Footer = () => {
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
               <Image src="/images/facebook.png" alt="Facebook" width={24} height={24} />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/k_m_shop237?igsh=cnJnczk2N251d28w" target="_blank" rel="noopener noreferrer">
               <Image src="/images/insta.jpeg" alt="Instagram" width={25} height={25} />
             </a>
           </div>
@@ -41,11 +41,11 @@ const Footer = () => {
         <div className={styles.footerSection}>
           <h3>Service Client</h3>
           <ul className={styles.footerLinks}>
-            <li><Link href="/contact">Contactez-nous</Link></li>
-            <li><Link href="/faq">FAQ</Link></li>
-            <li><Link href="/aide">Aide</Link></li>
-            <li><Link href="/livraison">Livraison & Retours</Link></li>
-            <li><Link href="/guide-des-tailles">Guide des tailles</Link></li>
+            <li><Link href="/service-client/contact">Contactez-nous</Link></li>
+            <li><Link href="/service-client/faq">FAQ</Link></li>
+            <li><Link href="/service-client/aide">Aide</Link></li>
+            <li><Link href="/service-client/livraison">Livraison & Retours</Link></li>
+            <li><Link href="/service-client/guide-des-tailles">Guide des tailles</Link></li>
           </ul>
         </div>
 
@@ -53,10 +53,10 @@ const Footer = () => {
         <div className={styles.footerSection}>
           <h3>Informations Légales</h3>
           <ul className={styles.footerLinks}>
-            <li><Link href="/mentions-legales">Mentions Légales</Link></li>
-            <li><Link href="/conditions-generales-vente">Conditions Générales de Vente</Link></li>
-            <li><Link href="/politique-confidentialite">Politique de Confidentialité</Link></li>
-            <li><Link href="/gestion-cookies">Gestion des Cookies</Link></li>
+            <li><Link href="/informations-legales/mentions-legales">Mentions Légales</Link></li>
+            <li><Link href="/informations-legales/conditions-generales-vente">Conditions Générales de Vente</Link></li>
+            <li><Link href="/informations-legales/politique-confidentialite">Politique de Confidentialité</Link></li>
+            <li><Link href="/informations-legales/gestion-cookies">Gestion des Cookies</Link></li>
           </ul>
         </div>
       </div>

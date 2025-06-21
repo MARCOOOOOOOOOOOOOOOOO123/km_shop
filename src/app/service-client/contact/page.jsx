@@ -12,6 +12,13 @@ const ContactPage = () => {
   return (
     // Utilisez styles pour les classes communes
     <div className={styles.pageContainer}>
+
+      
+<div className={styles.backToHomeButtonContainer}>
+        <Link href="/" className={styles.primaryButton}>
+          Retour à l'accueil
+        </Link>
+      </div>
       <h1 className={styles.pageTitle}>Contactez-nous</h1>
 
       <div className={styles.pageContent}>

@@ -10,7 +10,7 @@ import Footer from '../components/Footer';
 export default function Home() {
   return (
     <div>
-      <Navbar />
+     
       <main>
         <HeroSection />
         <CategoryCardsSection />
@@ -19,7 +19,7 @@ export default function Home() {
         <IconicModelsSlider />
         <ProductLinksGrid />
       </main>
-      <Footer />
+      
     </div>
   );
 }
