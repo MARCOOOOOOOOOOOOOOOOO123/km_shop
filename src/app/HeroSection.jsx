@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import styles from '../styles/HeroSection.module.css';
-
+import Image from 'next/image';
 const HeroSection = () => {
   const [showWhatsappModal, setShowWhatsappModal] = useState(false);
   
@@ -34,20 +34,14 @@ const HeroSection = () => {
 
   return (
     <section className={styles.heroSection}>
-      <video
-        className={styles.videoBackground}
-        autoPlay
-        loop
-        muted
-        playsInline
-        poster="/images/logo_km_shopppp.jpg" // Chemin vers une image de couverture légère
-        preload="metadata" // Indique de ne précharger que les métadonnées
-      >
-        <source src="/videos/Nike Spec AD - Sony FX3 Cinematic Video.mp4" type="video/mp4" />
-        {/* AJOUT OPTIONNEL : Ajoute une source WebM si tu as un fichier .webm optimisé */}
-        {/* <source src="/videos/Nike Spec AD - Sony FX3 Cinematic Video.webm" type="video/webm" /> */}
-        Your browser does not support the video tag.
-      </video>
+        <Image
+        src="/images/km_pp.jpg" // Chemin de votre image
+        alt="km_pp"             // Texte alternatif pour l'accessibilité
+        layout="fill"           // Pour que l'image remplisse le conteneur parent
+        objectFit="cover"       // Pour que l'image couvre l'espace sans être déformée
+        priority                // Charge l'image en priorité (pour le LCP)
+      />
+       
       <div className={styles.heroContent}>
         <h1>KM SHOP</h1>
         <p>Votre Passion, Votre Style. Équipez-vous.</p>
