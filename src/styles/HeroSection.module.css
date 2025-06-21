@@ -116,6 +116,21 @@
   }
 }
 
+@media (min-width: 768px) {
+  .heroSection {
+    height: 500px; /* NOUVELLE HAUTEUR SUR GRAND ÉCRAN (réduite de 700px à 500px) */
+  }
+
+  .heroContent h1 {
+    font-size: 2.8em; /* Ajustement de la taille du titre */
+  }
+
+  .heroContent p {
+    font-size: 1.1em; /* Ajustement de la taille du paragraphe */
+  }
+}
+
+
 @media (max-width: 480px) {
   .heroContent h1 {
     font-size: 2em;

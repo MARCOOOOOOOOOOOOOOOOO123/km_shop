@@ -34,27 +34,27 @@ const FeaturedProductsGrid = () => {
 
   const products = [
     {
-      tagline: 'Nike',
-      title: 'Just Do It !',
+      tagline: 'Foules le terrain avec un plus !',
+      title: 'Godasses',
       imageSrc: '/images/nike-prism-pack-crampons-1.jpg',
       linkHref: '#',
     },
     {
-      tagline: 'Adidas',
-      title: 'Impossible Is Nothing !',
-      imageSrc: '/images/adidas.webp',
+      tagline: 'Un Bijou, Une Émotion, Votre Empreinte.',
+      title: 'Montres et bijoux',
+      imageSrc: '/images/montres_bijoux/montre_voiture.jpg',
       linkHref: '#',
     },
     {
-      tagline: 'Tennis Nike',
-      title: 'Libère ta foulée',
-      imageSrc: '/images/checklist-randonnée -les-essentiels-à-emporter.avif',
+      tagline: 'Créez Votre Lumière, Définissez Votre Monde.',
+      title: 'LEDS',
+      imageSrc: '/images/LEDS/leds_chambre.jpg',
       linkHref: '#',
     },
     {
-      tagline: 'Tennis Adidas',
-      title: 'Rends ton footing inoubliable',
-      imageSrc: '/images/adidas_tennis.jpg',
+      tagline: 'Boostez Votre Expérience Digitale.',
+      title: 'Accessoires mobiles & informatiques',
+      imageSrc: '/images/Accessoires/2.jpg',
       linkHref: '#',
     }
   ];

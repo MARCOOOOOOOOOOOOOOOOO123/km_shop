@@ -44,7 +44,7 @@ const HeroSection = () => {
        
       <div className={styles.heroContent}>
         <h1>KM SHOP</h1>
-        <p>Votre Passion, Votre Style. Équipez-vous.</p>
+        <p>Plus qu'une boutique, une Expérience.</p>
         {/* Appel de handleBuyClick sans argument */}
         <button className={styles.heroButton} onClick={handleBuyClick}>Acheter</button>
       </div>

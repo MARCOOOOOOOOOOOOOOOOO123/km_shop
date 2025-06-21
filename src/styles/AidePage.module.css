@@ -1,0 +1,112 @@
+/* src/app/aide/AidePage.module.css */
+
+.searchSection {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchInput {
+  flex-grow: 1;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  font-size: 1em;
+  max-width: 500px; /* Limite la largeur du champ de recherche */
+}
+
+.searchInput::placeholder {
+  color: #aaa;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+.searchButton {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.searchButton:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.helpTopics {
+  list-style: none; /* Supprime les puces par défaut */
+  padding: 0;
+  margin-top: 20px;
+}
+
+.helpTopics li {
+  background-color: var(--white-color);
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.helpTopics li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.helpLink {
+  display: flex; /* Pour aligner icône et texte */
+  align-items: center;
+  font-size: 1.3em;
+  font-weight: bold;
+  color: var(--text-color);
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.helpLink:hover {
+  color: var(--primary-color);
+}
+
+.helpLink .icon {
+  font-size: 1.5em; /* Taille de l'icône */
+  margin-right: 10px;
+  color: var(--primary-color); /* Couleur de l'icône */
+}
+
+.topicDescription {
+  font-size: 0.95em;
+  color: var(--light-text-color);
+  margin-left: 38px; /* Aligner avec le texte du lien */
+}
+
+@media (max-width: 600px) {
+  .searchSection {
+    flex-direction: column;
+  }
+  .searchInput {
+    max-width: 100%;
+    width: 100%;
+  }
+  .searchButton {
+    width: 100%;
+  }
+  .helpLink {
+    font-size: 1.1em;
+  }
+  .topicDescription {
+    margin-left: 0; /* Réinitialiser le margin sur mobile si le texte se place en dessous */
+  }
+}

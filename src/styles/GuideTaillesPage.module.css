@@ -1,0 +1,67 @@
+/* src/app/guide-des-tailles/GuideTaillesPage.module.css */
+
+.measurementImage {
+  margin: 30px auto;
+  max-width: 700px; /* Limite la taille de l'image si elle est présente */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tableWrapper {
+  overflow-x: auto; /* Permet le défilement horizontal sur les petits écrans */
+  margin-bottom: 30px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.sizeTable {
+  width: 100%;
+  border-collapse: collapse; /* Pour des bordures de tableau propres */
+  text-align: center;
+  font-size: 0.95em;
+  min-width: 600px; /* Force une largeur minimale pour le défilement sur mobile */
+}
+
+.sizeTable th,
+.sizeTable td {
+  padding: 12px 15px;
+  border: 1px solid #eee;
+}
+
+.sizeTable thead {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+
+.sizeTable th {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sizeTable tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* Alternance de couleurs pour la lisibilité */
+}
+
+.sizeTable tbody tr:hover {
+  background-color: #f0f0f0; /* Effet de survol sur les lignes */
+}
+
+.bottomNote {
+  margin-top: 40px;
+  font-style: italic;
+  text-align: center;
+  color: var(--light-text-color);
+}
+
+@media (max-width: 600px) {
+  .sizeTable {
+    font-size: 0.9em;
+  }
+  .sizeTable th,
+  .sizeTable td {
+    padding: 10px;
+  }
+}

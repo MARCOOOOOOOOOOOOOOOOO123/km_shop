@@ -1,0 +1,35 @@
+/* src/app/contact/ContactPage.module.css */
+
+.whatsappButtons {
+  display: flex;
+  flex-direction: column; /* Les boutons s'empilent */
+  gap: 15px; /* Espace entre les boutons */
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.whatsappButton {
+  background-color: var(--secondary-color); /* Vert WhatsApp */
+  color: var(--white-color);
+  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3); /* Ombre verte */
+}
+
+.whatsappButton:hover {
+  background-color: #128c7e; /* Vert WhatsApp plus foncé au survol */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+}
+
+.whatsappNote {
+  font-size: var(--small-font-size);
+  color: var(--light-text-color);
+  text-align: center;
+  margin-top: -10px; /* Remonte un peu si besoin */
+}
+
+@media (min-width: 768px) {
+  .whatsappButtons {
+    flex-direction: row; /* Boutons côte à côte sur les grands écrans */
+    justify-content: center; /* Centre les boutons si seulement deux */
+  }
+}

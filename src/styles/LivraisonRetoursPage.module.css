@@ -1,0 +1,12 @@
+/* src/app/livraison/LivraisonRetoursPage.module.css */
+
+/* Pas de styles spécifiques supplémentaires pour le moment,
+   car global-pages.module.css couvre déjà la plupart des besoins
+   pour une page de contenu textuel. */
+
+.bottomNote {
+  margin-top: 40px;
+  font-style: italic;
+  text-align: center;
+  color: var(--light-text-color);
+}

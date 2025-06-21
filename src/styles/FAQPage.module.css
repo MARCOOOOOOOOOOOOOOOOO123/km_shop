@@ -1,0 +1,74 @@
+/* src/app/faq/FAQPage.module.css */
+
+.faqList {
+  margin-top: 30px;
+}
+
+.faqItem {
+  background-color: var(--white-color);
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  overflow: hidden; /* Important pour la transition du contenu */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.faqQuestion {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 25px;
+  background-color: #f0f0f0; /* Fond légèrement grisé pour la question */
+  color: var(--text-color);
+  font-size: 1.15em;
+  font-weight: 600;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.faqQuestion:hover,
+.faqQuestion[aria-expanded="true"] {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+
+.faqQuestion .icon {
+  font-size: 1.8em;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.faqQuestion[aria-expanded="true"] .icon {
+  transform: rotate(0deg); /* Maintenir le même signe ou faire un X si désiré */
+}
+
+.faqAnswer {
+  max-height: 0; /* Caché par défaut */
+  padding: 0 25px;
+  background-color: var(--white-color);
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, padding 0.4s ease-out; /* Transition douce */
+  font-size: var(--body-font-size);
+  color: var(--light-text-color);
+}
+
+.faqAnswer.open {
+  max-height: 500px; /* Valeur suffisante pour afficher tout le contenu */
+  padding: 15px 25px 25px; /* Padding lorsqu'ouvert */
+}
+
+/* Style pour les liens internes dans les réponses FAQ */
+/* Utilise :global() si le lien est rendu par dangerouslySetInnerHTML et n'est pas un composant Link de Next.js */
+.faqAnswer :global(.faq-link) {
+  color: var(--primary-color);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.faqAnswer :global(.faq-link:hover) {
+  color: #0056b3;
+}

@@ -33,9 +33,9 @@ const CategoryCardsSection = () => {
   const friendWhatsappLink = `https://wa.me/${friendWhatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
   const categories = [
-    { title: 'Femme', imageSrc: '/images/femme.webp', linkHref: '#' },
-    { title: 'Homme', imageSrc: '/images/olmoooooo.jpg', linkHref: '#' },
-    { title: 'Ado Enfant', imageSrc: '/images/Mini-ensemble_Domicile_Arsenal_24-25_Enfants_Rouge_IS8146_21_model.avif', linkHref: '#' },
+    { title: 'Maillots', imageSrc: '/images/femme.webp', linkHref: '#' },
+    { title: 'Vêtements', imageSrc: '/images/street-nike.webp', linkHref: '#' },
+    { title: 'Chaussures', imageSrc: '/images/new_balance.jpg', linkHref: '#' },
   ];
 
   return (

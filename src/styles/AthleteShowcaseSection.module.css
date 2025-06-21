@@ -3,15 +3,16 @@
 .athleteShowcaseSection {
   position: relative;
   width: 100%;
-  height: 80vh; /* Adjust height as needed, similar to hero section */
+  height: 80vh;
   display: flex;
-  align-items: center; /* Vertically center content */
-  justify-content: flex-start; /* Align content to left */
+  align-items: center;
+  justify-content: flex-start;
   overflow: hidden;
-  background-color: #000; /* Fallback background */
+  background-color: #000;
 }
 
-.athleteShowcaseSection img {
+/* Applique la transition à toutes les images du carrousel */
+.carouselImage {
   position: absolute;
   top: 0;
   left: 0;
@@ -19,116 +20,100 @@
   height: 100%;
   object-fit: cover;
   z-index: 1;
+  /* AJOUT IMPORTANT POUR LA TRANSITION DE L'IMAGE */
+  transition: opacity 10s ease-in-out; /* Douce transition d'opacité */
 }
 
+/* Le texte et le bouton sont au-dessus de l'image */
 .contentOverlay {
   position: relative;
   z-index: 2; /* Content above image */
   color: #fff;
-  padding: 0 80px; /* Adjust left padding for text alignment */
+  padding: 0 80px;
   text-align: left;
-  /* Add a subtle gradient here if text readability is an issue on some parts of the image */
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end; /* Align content to bottom of overlay */
-  padding-bottom: 80px; /* Space from bottom */
-  width: 50%; /* Cover half the width for text overlay */
+  justify-content: flex-end;
+  padding-bottom: 80px;
+  width: 50%;
+  /* Ajoutez un dégradé subtil pour une meilleure lisibilité du texte sur l'image */
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
 }
 
 .tagline {
   font-size: 1.1em;
   margin-bottom: 5px;
   font-weight: 500;
-  text-shadow: 1px 1px 2px rgb(255, 255, 255);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Ombre légère pour le texte clair */
 }
 
 .athleteName {
-  font-size: 4.5em; /* Large, bold name */
+  font-size: 4.5em;
   font-weight: bold;
   margin-bottom: 25px;
   line-height: 1.1;
-  text-shadow: 2px 2px 5px rgb(174, 171, 171);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Ombre plus prononcée pour le titre */
 }
 
 .actionButton {
-  background-color: #fff; /* Couleur de fond par défaut */
-  color: #000;             /* Couleur du texte par défaut */
+  background-color: #fff;
+  color: #000;
   padding: 12px 35px;
   border: none;
   border-radius: 25px;
   font-size: 1.1em;
   font-weight: 600;
   cursor: pointer;
-  align-self: flex-start; /* Align button to the left */
-
-  /* AJOUTS POUR L'EFFET FLUORESCENT / GLOW */
-  /* Transitions pour un effet fluide sur toutes les propriétés que l'on va modifier */
+  align-self: flex-start;
   transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.4s ease, transform 0.3s ease, background 0.4s ease;
-
-  /* Pour un léger effet d'ombre par défaut, pour que le bouton ne soit pas plat */
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
 .actionButton:hover {
-  color: #fff; /* Change la couleur du texte en blanc pour contraster avec le dégradé lumineux */
-
-  /* Dégradé de couleurs vives (vert menthe, turquoise, bleu clair) pour le fond */
+  color: #fff;
   background: linear-gradient(
     90deg,
-    #7dffaf, /* Vert menthe clair */
-    #4dffd8, /* Turquoise vif */
-    #00e6e6, /* Cyan / Bleu-vert */
-    #00bfff, /* Bleu ciel profond */
-    #007bff  /* Bleu standard */
+    #7dffaf,
+    #4dffd8,
+    #00e6e6,
+    #00bfff,
+    #007bff
   );
-  background-size: 200% 100%; /* Permet d'animer le dégradé */
-  background-position: 100% 0%; /* Position initiale du dégradé au survol (commence de la fin pour un effet d'apparition) */
-
-  /* Effet de lueur (glow) avec des ombres multiples, correspondant au dégradé */
+  background-size: 200% 100%;
+  background-position: 100% 0%;
   box-shadow:
-    0 0 15px #7dffaf,  /* Lueur vert menthe */
-    0 0 25px #4dffd8,  /* Lueur turquoise */
-    0 0 35px #00e6e6,  /* Lueur cyan */
-    0 0 45px #00bfff,  /* Lueur bleu ciel */
-    0 0 60px #007bff;  /* Lueur bleu plus intense */
-
-  /* Légère élévation ou transformation au survol pour un feedback visuel */
-  transform: translateY(-4px) scale(1.03); /* Légère élévation et petit zoom */
+    0 0 15px #7dffaf,
+    0 0 25px #4dffd8,
+    0 0 35px #00e6e6,
+    0 0 45px #00bfff,
+    0 0 60px #007bff;
+  transform: translateY(-4px) scale(1.03);
 }
-
-/* Optionnel: animation du dégradé de fond */
-/*
-@keyframes gentleFlow {
-  0% { background-position: 0% 0%; }
-  100% { background-position: 100% 0%; }
-}
-
-.actionButton:hover {
-  animation: gentleFlow 5s linear infinite;
-  animation-fill-mode: forwards;
-}
-*/
-
 
 /* Responsive adjustments for AthleteShowcaseSection */
 @media (max-width: 1200px) {
   .athleteName {
     font-size: 3.5em;
   }
+  .contentOverlay {
+    width: 60%; /* Ajustement de la largeur de l'overlay */
+  }
 }
 
 @media (max-width: 768px) {
   .athleteShowcaseSection {
-    height: 60vh; /* Shorter on mobile */
+    height: 60vh;
   }
 
   .contentOverlay {
     padding: 0 30px;
     padding-bottom: 40px;
-    width: 100%; /* Take full width on mobile */
+    width: 100%; /* Full width on mobile */
     background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)); /* Stronger gradient */
     justify-content: flex-end;
+    align-items: center; /* Centrer le contenu horizontalement sur mobile */
+    text-align: center; /* Centrer le texte sur mobile */
   }
 
   .tagline {
@@ -156,26 +141,24 @@
   }
 }
 
-
-/* MODAL WHATSAPP STYLES (Copied and adapted from previous responses) */
-
+/* MODAL WHATSAPP STYLES (inchangés) */
 .whatsappModalOverlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent */
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000; /* Assure que la modale est au-dessus de tout */
-  backdrop-filter: blur(5px); /* Optionnel: effet de flou sur l'arrière-plan */
+  z-index: 1000;
+  backdrop-filter: blur(5px);
 }
 
 .whatsappModalContent {
-  background-color: #fff; /* Fond blanc comme sur l'image */
-  padding: 0; /* Pas de padding direct sur le contenu pour gérer les sections */
+  background-color: #fff;
+  padding: 0;
   border-radius: 12px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
   text-align: center;
@@ -183,70 +166,65 @@
   width: 90%;
   position: relative;
   color: #333;
-  overflow: hidden; /* Pour que le header ne déborde pas si rond */
+  overflow: hidden;
 }
 
-/* Section du haut de la modale (HEADER) */
 .modalHeader {
-  background-color: #007bff; /* Couleur de fond bleue, comme l'image */
+  background-color: #007bff;
   color: #fff;
-  padding: 40px 20px 20px; /* Plus de padding en haut pour le cercle */
+  padding: 40px 20px 20px;
   position: relative;
-  z-index: 1; /* S'assure que le header est au-dessus des motifs */
-  margin-bottom: 20px; /* Espace entre le header et le contenu des boutons */
-  /* Styles pour les motifs décoratifs si tu veux les ajouter */
-  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z' fill='%23ffffff' opacity='0.1'/%3E%3C/svg%3E"); /* Exemple de petit motif */
+  z-index: 1;
+  margin-bottom: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z' fill='%23ffffff' opacity='0.1'/%3E%3C/svg%3E");
   background-repeat: repeat;
-  background-size: 20px; /* Taille des motifs */
+  background-size: 20px;
 }
 
-/* Cercle de l'icône */
 .iconCircle {
-  background-color: #fff; /* Fond blanc pour le cercle */
+  background-color: #fff;
   border-radius: 50%;
   width: 70px;
   height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: -75px auto 15px; /* Positionne le cercle au-dessus du header, ajuste margin-top */
+  margin: -75px auto 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  position: relative; /* Pour z-index si d'autres éléments */
-  z-index: 2; /* Au-dessus du header */
+  position: relative;
+  z-index: 2;
 }
 
-/* Style pour l'icône (utiliser un SVG ou une font-awesome) */
 .iconCircle svg {
   width: 40px;
   height: 40px;
-  fill: #007bff; /* Couleur de l'icône (bleu) */
+  fill: #007bff;
 }
 
-.modalTitle { /* Remplacera h3 */
-  font-size: 2em; /* Plus grand titre */
+.modalTitle {
+  font-size: 2em;
   font-weight: bold;
   margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #fff; /* Couleur blanche pour le titre dans le header */
+  color: #fff;
 }
 
-.modalDescription { /* Remplacera p */
+.modalDescription {
   font-size: 1.1em;
   line-height: 1.5;
-  color: #fff; /* Couleur blanche pour la description dans le header */
+  color: #fff;
 }
 
-/* Conteneur des boutons de contact */
 .whatsappButtonsContainer {
   display: flex;
-  flex-direction: column; /* Boutons l'un en dessous de l'autre */
-  gap: 15px; /* Espace entre les boutons de contact */
-  padding: 0 30px 30px; /* Padding pour les boutons et le bas de la modale */
+  flex-direction: column;
+  gap: 15px;
+  padding: 0 30px 30px;
 }
 
 .contactButton {
-  display: block; /* S'assure que le lien prend toute la largeur */
+  display: block;
   padding: 12px 25px;
   border-radius: 30px;
   font-size: 1.1em;
@@ -255,9 +233,7 @@
   text-align: center;
   transition: all 0.3s ease;
   cursor: pointer;
-
-  /* Styles des boutons WhatsApp (personnalise les couleurs !) */
-  background: linear-gradient(90deg, #25d366, #128c7e); /* Vert WhatsApp */
+  background: linear-gradient(90deg, #25d366, #128c7e);
   color: #fff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -265,34 +241,33 @@
 .contactButton:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(90deg, #128c7e, #25d366); /* Inversion ou légère variation */
+  background: linear-gradient(90deg, #128c7e, #25d366);
 }
 
-/* Bouton de fermeture */
 .closeModalButton {
   position: absolute;
-  top: 15px; /* Position plus proche du coin supérieur droit */
-  right: 15px; /* Position plus proche du coin supérieur droit */
+  top: 15px;
+  right: 15px;
   background: none;
   border: none;
-  font-size: 2.5em; /* Plus grand */
-  color: #fff; /* Couleur blanche comme l'image */
+  font-size: 2.5em;
+  color: #fff;
   cursor: pointer;
   padding: 0;
   line-height: 1;
   transition: color 0.2s ease, transform 0.2s ease;
-  z-index: 3; /* Assure qu'il est au-dessus de tout */
+  z-index: 3;
 }
 
 .closeModalButton:hover {
-  color: #eee; /* Légèrement plus clair au survol */
-  transform: rotate(90deg); /* Effet de rotation au survol */
+  color: #eee;
+  transform: rotate(90deg);
 }
 
 /* Media Queries pour la modale sur mobile */
 @media (max-width: 500px) {
   .whatsappModalContent {
-    padding: 0; /* Plus large sur les très petits écrans */
+    padding: 0;
     width: 95%;
   }
   .modalHeader {

@@ -144,4 +144,18 @@
     justify-content: center;
   }
   
+  .arrowButton {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  color: #ffffff;
+}
 }

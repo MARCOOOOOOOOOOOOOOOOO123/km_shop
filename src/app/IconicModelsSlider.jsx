@@ -19,8 +19,8 @@ const IconicModelsSlider = () => {
       linkHref: '#',
     },
     {
-      name: 'New Balance',
-      imageSrc: '/images/new_balance.jpg', // Replace with your actual image path
+      name: 'Adidas',
+      imageSrc: '/images/adidas_petite.jpg', // Replace with your actual image path
       linkHref: '#',
     },
     {

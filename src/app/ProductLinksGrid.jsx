@@ -6,34 +6,42 @@ const ProductLinksGrid = () => {
     {
       title: 'Chaussures',
       links: [
-        { text: 'Chaussures de running Homme', href: '#' }, // Modifié
-        { text: 'Chaussures de running Femme', href: '#' }, // Modifié
-        { text: 'Chaussures Nike P-60...', href: '#' },
-        { text: 'Nike Initiator', href: '#' },
+        { text: 'Chaussure Samba', href: '#' }, // Modifié
+        { text: 'Chaussure Tm Air Nike', href: '#' }, // Modifié
+        { text: 'Chaussures Air Force One', href: '#' },
+        { text: 'Air Jordan One', href: '#' },
       ],
     },
     {
       title: 'Vêtements',
       links: [
-        { text: 'Pantalons de yoga', href: '#' },
-        { text: 'Pantalons de survêtement', href: '#' },
-        { text: 'Tech Fleece', href: '#' },
+        { text: 'Joggings', href: '#' },
+        { text: 'T-shirts', href: '#' },
       ],
     },
+
     {
-      title: 'Enfant',
+      title: 'LEDS',
       links: [
-        { text: 'Chaussures noires pour Enfant', href: '#' }, // Modifié
-        { text: 'Chaussures colorées pour Enfant', href: '#' }, // Modifié (ou autre)
+        { text: 'Astro-Projeteur', href: '#' },
+        { text: 'LEDS Neon', href: '#' },
       ],
     },
+    
     {
       title: 'Articles du moment',
       links: [
-        { text: 'Clubs de football', href: '#' },
-        { text: 'Football', href: '#' },
-        { text: 'Nike England', href: '#' },
-        { text: 'Nike Run Club', href: '#' },
+        { text: 'Maillots saison 25/26', href: '#' },
+        { text: 'Air Force One', href: '#' },
+        { text: 'Montres et Bijoux personnalisés', href: '#' },
+        { text: 'Godasses', href: '#' },
+      ],
+    },
+
+     {
+      title: 'Articles !',
+      links: [
+        { text: 'En route vers les articles !', href: '#' },
       ],
     },
   ];
