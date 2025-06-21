@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/ProductLinksGrid.module.css';
+import styles from '@/styles/ProductLinksGrid.module.css';
 
 const ProductLinksGrid = () => {
   const categories = [

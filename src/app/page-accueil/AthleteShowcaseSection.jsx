@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useMemo } from 'react'; // Importe useMemo
 import Image from 'next/image';
-import styles from '../styles/AthleteShowcaseSection.module.css';
+import styles from '@/styles/AthleteShowcaseSection.module.css';
 
 const AthleteShowcaseSection = () => {
   const [showWhatsappModal, setShowWhatsappModal] = useState(false);

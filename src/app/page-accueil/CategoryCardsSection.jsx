@@ -3,7 +3,7 @@
 "use client";
 import React, { useState } from 'react';
 import Image from 'next/image';
-import styles from '../styles/CategoryCardsSection.module.css';
+import styles from '@/styles/CategoryCardsSection.module.css';
 // import Link from 'next/link'; // On utilise <a> pour les liens externes
 
 const CategoryCardsSection = () => {

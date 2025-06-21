@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react';
-import styles from '../styles/HeroSection.module.css';
+import styles from '@/styles/HeroSection.module.css';
 import Image from 'next/image';
 const HeroSection = () => {
   const [showWhatsappModal, setShowWhatsappModal] = useState(false);

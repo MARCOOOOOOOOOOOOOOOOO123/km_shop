@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import styles from '../styles/IconicModelsSlider.module.css'
+import styles from '@/styles/IconicModelsSlider.module.css'
 
 const IconicModelsSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -33,13 +33,38 @@ const IconicModelsSlider = () => {
       imageSrc: '/images/CORTEZ.png',
       linkHref: '#',
     },
+    {
+      name: 'Nike Dunk Low', // Example additional model
+      imageSrc: '/images/chaussures/IMG-20250621-WA0029.jpg',
+      linkHref: '#',
+    },
+    {
+      name: 'Nike SB Dunk Low Pro', // Example additional model
+      imageSrc: '/images/chaussures/IMG-20250621-WA0030.jpg',
+      linkHref: '#',
+    },
+    {
+      name: 'Nike Air Jordan', // Example additional model
+      imageSrc: '/images/chaussures/IMG-20250621-WA0032.jpg',
+      linkHref: '#',
+    },
+    {
+      name: 'Nike Jack Cacktus', // Example additional model
+      imageSrc: '/images/chaussures/IMG-20250621-WA0035.jpg',
+      linkHref: '#',
+    },
+    {
+      name: 'Nike G-TEK', // Example additional model
+      imageSrc: '/images/chaussures/IMG-20250621-WA0034.jpg',
+      linkHref: '#',
+    },
   ];
 
   // Logic for displaying only 3 items at a time
-  const visibleModels = models.slice(currentIndex, currentIndex + 3);
+  const visibleModels = models.slice(currentIndex, currentIndex + 7);
 
   const goToNext = () => {
-    if (currentIndex + 3 < models.length) {
+    if (currentIndex + 7 < models.length) {
       setCurrentIndex((prevIndex) => prevIndex + 1);
     }
   };
@@ -53,12 +78,12 @@ const IconicModelsSlider = () => {
   return (
     <section className={styles.iconicModelsSection}>
       <div className={styles.sectionHeader}>
-        <h2>Nos modèles de chaussures</h2>
+        <h2>Nos dernières sorties de chaussures</h2>
         <div className={styles.navigationArrows}>
           <button onClick={goToPrev} disabled={currentIndex === 0} className={styles.arrowButton}>
             &lt;
           </button>
-          <button onClick={goToNext} disabled={currentIndex + 3 >= models.length} className={styles.arrowButton}>
+          <button onClick={goToNext} disabled={currentIndex + 1 >= models.length} className={styles.arrowButton}>
             &gt;
           </button>
         </div>
