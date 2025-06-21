@@ -67,7 +67,6 @@
   transition: color 0.3s ease;
   font-family: 'Inter', sans-serif;
   white-space: nowrap; /* Empêche le texte de se casser sur plusieurs lignes */
-  font-weight: 400;
 }
 
 /* Underline effect for Nav Link */
@@ -148,45 +147,7 @@
   border-radius: 5px;
 }
 
-.dropdownColumn {
-  display: flex;
-  flex-direction: column;
-  flex-basis: 25%;
-  white-space: nowrap;
-}
 
-.dropdownColumnTitle {
-  font-size: 1em;
-  font-weight: bold;
-  color: #fff; /* Titre blanc */
-  margin-bottom: 15px;
-  padding: 0;
-}
-
-.dropdownColumnLinks {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.dropdownColumnLinks li {
-  margin-bottom: 8px;
-}
-
-.dropdownColumnLinks li:last-child {
-  margin-bottom: 0;
-}
-
-.dropdownColumnLinks a {
-  text-decoration: none;
-  color: #ccc; /* Couleur de texte légèrement plus claire */
-  font-size: 0.9em;
-  transition: color 0.2s ease;
-}
-
-.dropdownColumnLinks a:hover {
-  color: #007bff; /* Couleur d'accent au survol */
-}
 
 /* ==================================== */
 /* 5. Search Bar Styling (Integrated) */
@@ -364,89 +325,49 @@
 /* Mobile Specific Adjustments (max-width: 767px) */
 @media (max-width: 767px) {
   .mainNav {
+    /* Sur mobile, on veut que le logo soit à gauche et le burger à droite */
     justify-content: space-between;
-    padding: 0px 20px;
+    padding: 0px 20px; /* Padding latéral réduit pour mobile */
   }
 
   .logo {
-    margin-right: 0;
+    margin-right: 0; /* Réinitialise la marge pour le logo sur mobile */
   }
 
-  /* Cache les liens principaux de bureau et les icônes sur mobile par défaut */
-  .navLinks {
-    display: none; /* Cache les liens de la navbar principale sur mobile */
-  }
-  .navIcons {
-    display: none; /* Cache les icônes de la navbar principale sur mobile */
-  }
-  .searchBarNavItem {
-    display: none; /* Cache la barre de recherche sur mobile par défaut */
-  }
-
-
-  /* Style de l'OVERLAY du menu mobile lorsqu'il est ouvert */
-  .mobileMenuOverlay { /* C'est LA CLASSE PRINCIPALE de l'overlay mobile */
-    position: fixed;
-    top: 0;
-    left: 0;
+  .navLinks { /* Cette classe gère l'affichage/masquage du menu mobile */
+    display: none; /* Masqué par défaut */
+    flex-direction: column; /* Les liens s'empilent verticalement */
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.95); /* Fond noir semi-transparent couvrant tout l'écran */
-    z-index: 1020; /* Au-dessus de la navbar */
-    display: flex; /* Permet d'aligner les éléments enfants (les liens principaux) */
-    flex-direction: column; /* Les éléments enfants s'empilent verticalement */
-    align-items: center; /* Centre les liens horizontalement */
-    justify-content: flex-start; /* Aligne les éléments du menu au début (haut) */
-    padding-top: 80px; /* Laisse de l'espace pour la navbar fixe en haut */
-    padding-bottom: 10px;
-    overflow-y: auto; /* Permet le défilement si le contenu est trop grand */
-    gap: 2px; /* Espacement entre les liens principaux du menu mobile */
+    align-items: center; /* Centre les liens du menu mobile */
+    gap: 20px; /* Espace entre les éléments du menu mobile */
+ 
   }
 
-  /* Styles des LIENS PRINCIPAUX à l'intérieur du menu mobile */
-  .navItem { /* Cette classe s'applique aux <li> qui contiennent les liens */
-    width: 100%; /* S'assure que le <li> prend toute la largeur */
-    text-align: center; /* Centre le texte des liens */
-    /* Pas besoin de gérer les survol/sortie ici, ils ne déclenchent plus de sous-menus */
+ 
+
+  .navItem {
+    
+    text-align: center;
+     height:80px;
+     margin-right: 80px;
+     
   }
 
-  .navLink { /* C'est la classe des <Link> de la navbar principale */
-    display: block; /* S'assure que le lien prend toute la largeur du <li> parent */
-    padding: 10px 0; /* Padding vertical pour une grande zone de clic */
-    font-size: 1em; /* Grande taille de police pour les liens principaux du menu mobile */
-    font-weight: 600; /* Plus épais pour la lisibilité */
+  .navLink {
+    padding: 15px 0;
+    font-size: 1.3em;
     color: #fff;
-    text-decoration: none;
-    transition: color 0.2s ease, background-color 0.2s ease;
+    
   }
 
-  .navLink:hover {
-    color: #007bff;
-    background-color: rgba(255, 255, 255, 0.05); /* Léger fond au survol */
+  .navItem:hover .navLink::after {
+    transform: scaleX(0); /* Cache l'underline au survol sur mobile si tu ne veux pas */
   }
 
-  /* Masque TOUS les sous-menus et les éléments non-principaux à l'intérieur de l'overlay mobile */
-  .dropdownMenuSimple,
-  .dropdownMenuMultiColumn,
-  .mobileSubmenuList, /* Si ces classes ont été utilisées pour rendre les sous-menus sur mobile */
-  .mobileMultiColumn,
-  .searchBarNavItem, /* Masque la barre de recherche si elle est rendue dans le menu mobile */
-  .navIcons /* Masque les icônes si elles sont rendues dans le menu mobile */
-  {
-    display: none !important; /* Force le masquage */
-  }
 
-  /* Si tu veux une croix de fermeture, assure-toi qu'elle est toujours visible */
-  .closeMenuButton {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    background: none;
-    border: none;
-    color: #ffffff;
-    font-size: 3rem;
-    cursor: pointer;
-    z-index: 1002;
-    line-height: 1;
+  /* Icônes de navigation (cœur/panier) sur mobile */
+  .navIcons {
+    display: none; /* Masque les icônes à côté du burger par défaut sur mobile */
+    /* Si tu veux les afficher DANS le menu mobile, il faudrait les intégrer au JSX de .navLinksOpen */
   }
 }

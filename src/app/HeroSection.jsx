@@ -40,7 +40,7 @@ const HeroSection = () => {
         loop
         muted
         playsInline
-        poster="/images/video-poster.webp" // Chemin vers une image de couverture légère
+        poster="/images/logo_km_shopppp.jpg" // Chemin vers une image de couverture légère
         preload="metadata" // Indique de ne précharger que les métadonnées
       >
         <source src="/videos/Nike Spec AD - Sony FX3 Cinematic Video.mp4" type="video/mp4" />

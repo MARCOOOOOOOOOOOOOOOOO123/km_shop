@@ -33,37 +33,88 @@ const Navbar = () => {
     setActiveMenu(null);
   };
 
+  // --- MISE À JOUR IMPORTANTE ICI : DÉFINITION DES SOUS-MENUS ET COLONNES ---
+  // J'ai rempli les `submenu` et `columns` avec des exemples pour montrer comment ça fonctionnerait.
+  // Tu devras adapter ces données à la structure réelle de ton site.
   const menuItems = [
-    // ... (garde ta constante menuItems exactement comme elle est) ...
     {
       name: 'Nouveautés et articles du moment',
-      path: '/nouveautes',
+      path: '/nouveautes', // Ce lien pointe maintenant vers notre page /nouveautes
       type: 'multicolumn',
-      columns: [ /* Ces colonnes ne seront pas rendues sur mobile */ ],
+      columns: [
+        {
+          title: 'Explorer les Nouveautés',
+          links: [
+            { text: 'Tous les Nouveaux Articles', href: '/nouveautes' }, // Lien direct vers la page de nouveautés
+            { text: 'Nouveautés Homme', href: '/nouveautes?gender=Homme' }, // Exemple de lien avec filtre pré-appliqué
+            { text: 'Nouveautés Femme', href: '/nouveautes?gender=Femme' },
+            { text: 'Nouveautés Enfant', href: '/nouveautes?gender=Enfant' },
+          ],
+        },
+        {
+          title: 'Collections Phares',
+          links: [
+            { text: 'Collection Hiver 2025', href: '/collections/hiver-2025' },
+            { text: 'Tendances du Mois', href: '/tendances' },
+            { text: 'Édition Limitée', href: '/edition-limitee' },
+          ],
+        },
+        {
+          title: 'Inspirations',
+          links: [
+            { text: 'Guides de Style', href: '/guides' },
+            { text: 'Histoires de Produits', href: '/histoires' },
+            { text: 'Événements à Venir', href: '/evenements' },
+          ],
+        },
+      ],
     },
     {
       name: 'Homme',
-      path: '/homme',
+      path: '/homme', // Point vers la page homme (à créer si ce n'est pas déjà fait)
       type: 'simple',
-      submenu: [ /* Ces sous-menus ne seront pas rendues sur mobile */ ],
+      submenu: [
+        { text: 'Chaussures Homme', href: '/homme/chaussures' },
+        { text: 'Vêtements Homme', href: '/homme/vetements' },
+        { text: 'Accessoires Homme', href: '/homme/accessoires' },
+        { text: 'Football', href: '/homme/football' },
+        { text: 'Running', href: '/homme/running' },
+        // ... ajoute d'autres sous-catégories
+      ],
     },
     {
       name: 'Femme',
-      path: '/femme',
+      path: '/femme', // Point vers la page femme
       type: 'simple',
-      submenu: [ /* Ces sous-menus ne seront pas rendues sur mobile */ ],
+      submenu: [
+        { text: 'Chaussures Femme', href: '/femme/chaussures' },
+        { text: 'Vêtements Femme', href: '/femme/vetements' },
+        { text: 'Accessoires Femme', href: '/femme/accessoires' },
+        { text: 'Training', href: '/femme/training' },
+        // ...
+      ],
     },
     {
       name: 'Enfant',
-      path: '/enfant',
+      path: '/enfant', // Point vers la page enfant
       type: 'simple',
-      submenu: [ /* Ces sous-menus ne seront pas rendues sur mobile */ ],
+      submenu: [
+        { text: 'Garçons', href: '/enfant/garcons' },
+        { text: 'Filles', href: '/enfant/filles' },
+        { text: 'Bébés et Tout-petits', href: '/enfant/bebes' },
+        { text: 'Chaussures Enfant', href: '/enfant/chaussures' },
+        // ...
+      ],
     },
     {
       name: 'Offres',
-      path: '/offres',
+      path: '/offres', // Point vers la page des offres
       type: 'simple',
-      submenu: [ /* Ces sous-menus ne seront pas rendues sur mobile */ ],
+      submenu: [
+        { text: 'Promotions actuelles', href: '/offres/promotions' },
+        { text: 'Ventes flash', href: '/offres/flash' },
+        { text: 'Nouveaux arrivages en promo', href: '/offres/nouveautes-promo' },
+      ],
     },
   ];
 
@@ -72,7 +123,7 @@ const Navbar = () => {
       <div className={styles.mainNav}>
         <div className={styles.logo}>
           <Link href="/" onClick={handleMobileLinkClick}>
-            <Image src="/images/logo.jpg" alt="KM SHOP Logo" width={66} height={66} />
+            <Image src="/images/logo_km_shopppp.jpg" alt="KM SHOP Logo" width={66} height={66} />
           </Link>
         </div>
 
@@ -85,54 +136,53 @@ const Navbar = () => {
 
         {/* L'overlay du menu mobile, conditionnellement affiché */}
         {isMobileMenuOpen && (
-          <ul className={styles.mobileMenuOverlay}> {/* Utilise styles.mobileMenuOverlay ici */}
+          <ul className={styles.mobileMenuOverlay}>
             {menuItems.map((item) => (
               <li
                 key={item.name}
                 className={styles.navItem}
-                // PAS de onMouseEnter/Leave ici, car pas de déroulement sur mobile
               >
                 {/* Ces liens sont les SEULS éléments affichés dans le menu mobile */}
+                {/* Chaque lien du menu mobile redirige directement vers son chemin principal */}
                 <Link href={item.path} className={styles.navLink} onClick={handleMobileLinkClick}>
                   {item.name}
                 </Link>
-                {/* NE PAS RENDRE DE SOUS-MENUS ICI POUR MOBILE */}
-                {/* Tu avais un bloc ici:
-                {activeMenu === item.name && !isMobileMenuOpen && ( ... ) }
-                Je l'ai laissé mais il sera toujours false sur mobile.
-                Si tu ne veux ABSOLUMENT AUCUN sous-lien, supprime simplement tout ce bloc. */}
+                {/* NOTE : Sur mobile, les sous-menus ne sont pas affichés par défaut.
+                    Si tu veux qu'ils s'ouvrent, il faudrait une logique de `useState` supplémentaire
+                    pour gérer l'ouverture/fermeture des sous-menus individuels sur mobile,
+                    et adapter le CSS en conséquence. Pour l'instant, je les laisse cachés.
+                */}
               </li>
             ))}
 
             {/* Si tu veux la barre de recherche DANS le menu mobile, remets-la ici */}
-            {/* <li className={styles.searchBarNavItem}>
-              <div className={styles.searchBar}>
+            <li className={styles.searchBarNavItemMobile}> {/* Nouveau style pour mobile si désiré */}
+              <div className={styles.searchBarMobile}> {/* Nouveau style pour mobile si désiré */}
                 <input type="text" placeholder="Rechercher" className={styles.searchInput} />
                 <button className={styles.searchButton} onClick={handleMobileLinkClick}>
-                  <Image src="/search-icon.svg" alt="Search" width={16} height={16} />
+                  <Image src="/images/search.png" alt="Rechercher" width={16} height={16} />
                 </button>
               </div>
-            </li> */}
+            </li>
 
             {/* Si tu veux les icônes de nav DANS le menu mobile, remets-les ici */}
-            {/* <div className={`${styles.navIcons} ${styles.mobileNavIcons}`}>
+            <div className={`${styles.navIcons} ${styles.mobileNavIcons}`}>
               <Link href="/favoris" onClick={handleMobileLinkClick}>
-                <Image src="/heart-icon.svg" alt="Favorites" width={20} height={20} />
+                <Image src="/images/heart.png" alt="Favoris" width={20} height={20} />
               </Link>
               <Link href="/panier" onClick={handleMobileLinkClick}>
-                <Image src="/bag-icon.svg" alt="Cart" width={20} height={20} />
+                <Image src="/images/cart.png" alt="Panier" width={20} height={20} />
               </Link>
-            </div> */}
+            </div>
 
-             {/* Bouton de fermeture du menu mobile */}
+            {/* Bouton de fermeture du menu mobile */}
             <button className={styles.closeMenuButton} onClick={toggleMobileMenu}>
               &times; {/* Le caractère 'x' */}
             </button>
           </ul>
         )}
 
-        {/* Les liens de navigation et la barre de recherche pour le desktop (cachés sur mobile) */}
-        {/* Ces éléments doivent toujours être rendus pour le desktop */}
+        {/* Les liens de navigation et la barre de recherche pour le desktop (cachés sur mobile via CSS) */}
         <ul className={styles.navLinks}>
           {menuItems.map((item) => (
             <li
@@ -141,12 +191,13 @@ const Navbar = () => {
               onMouseEnter={() => handleMouseEnter(item.name)}
               onMouseLeave={handleMouseLeave}
             >
-              <Link href={item.path} className={styles.navLink}> {/* Utilise styles.navLink pour le desktop */}
+              <Link href={item.path} className={styles.navLink}>
                 {item.name}
               </Link>
               {/* Rendre les sous-menus UNIQUEMENT sur desktop */}
-              {activeMenu === item.name && (
-                item.type === 'simple' ? (
+              {/* Le rendu du sous-menu est conditionnel à `activeMenu` */}
+              {activeMenu === item.name && (item.submenu || item.columns) && ( // S'assure qu'il y a des données de sous-menu
+                item.type === 'simple' && item.submenu ? ( // Vérifie que submenu existe pour type 'simple'
                   <ul className={styles.dropdownMenuSimple}>
                     {item.submenu.map((subItem, index) => (
                       <li key={subItem.text || index}>
@@ -154,14 +205,14 @@ const Navbar = () => {
                       </li>
                     ))}
                   </ul>
-                ) : (
+                ) : item.type === 'multicolumn' && item.columns ? ( // Vérifie que columns existe pour type 'multicolumn'
                   <div className={styles.dropdownMenuMultiColumn}>
-                    {item.columns.map((column) => (
-                      <div key={column.title} className={styles.dropdownColumn}>
+                    {item.columns.map((column, colIndex) => (
+                      <div key={column.title || colIndex} className={styles.dropdownColumn}>
                         <h4 className={styles.dropdownColumnTitle}>{column.title}</h4>
                         <ul className={styles.dropdownColumnLinks}>
-                          {column.links.map((link, index) => (
-                            <li key={link.text || index}>
+                          {column.links.map((link, linkIndex) => (
+                            <li key={link.text || linkIndex}>
                               <Link href={link.href}>{link.text}</Link>
                             </li>
                           ))}
@@ -169,7 +220,7 @@ const Navbar = () => {
                       </div>
                     ))}
                   </div>
-                )
+                ) : null // Si pas de sous-menu ou de colonnes définies, ne rien rendre
               )}
             </li>
           ))}
@@ -182,8 +233,8 @@ const Navbar = () => {
               </button>
             </div>
           </li>
+          
         </ul>
-
       </div>
     </nav>
   );
