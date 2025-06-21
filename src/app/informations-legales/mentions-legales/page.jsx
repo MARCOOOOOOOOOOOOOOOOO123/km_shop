@@ -1,6 +1,7 @@
 // src/app/mentions-legales/page.jsx
 import React from 'react';
 import styles from '@/styles/base-page.module.css';
+import Link from 'next/link';
 
 const MentionsLegalesPage = () => {
   return (
